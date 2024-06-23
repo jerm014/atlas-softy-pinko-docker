@@ -3,7 +3,7 @@ services:
     build:
       context: ./back-end
       dockerfile: Dockerfile
-    image: softy-pinko-back-end:task4
+    image: softy-pinko-back-end:latest
     ports:
       - "5252:5252"
 
@@ -11,7 +11,7 @@ services:
     build:
       context: ./front-end
       dockerfile: Dockerfile
-    image: softy-pinko-front-end:task4
+    image: softy-pinko-front-end:latest
     ports:
       - "9000:9000"
     # this requires the back-end
