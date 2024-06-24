@@ -1,0 +1,31 @@
+services:
+  back-end:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: softy-pinko-back-end:latest
+    # don't allow external clients to connect? (was: 5252:5252)
+    ports:
+      - "5252"
+
+  front-end:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: softy-pinko-front-end:latest
+    ports:
+    # don't allow external clients to connect? (was 9000:9000)
+      - "9000"
+    # this requires the back-end
+    depends_on:
+      - back-end
+
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: softy-pinko-proxy:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - front-end
