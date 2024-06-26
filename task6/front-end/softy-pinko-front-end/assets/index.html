@@ -9,11 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Softy Pinko - Bootstrap 4.0 Theme</title>
-<!--
-SOFTY PINKO
-https://templatemo.com/tm-535-softy-pinko
--->
+    <title>Softy Pinko</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -77,9 +73,8 @@ https://templatemo.com/tm-535-softy-pinko
             <div class="container">
                 <div class="row">
                     <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                        <h1 id="dynamic-content"></h1>
                         <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
-                        <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo 
-                        for your company at absolutely free of charge</p>
                         <a href="#features" class="main-button-slider">Discover More</a>
                     </div>
                 </div>
@@ -564,7 +559,6 @@ https://templatemo.com/tm-535-softy-pinko
                     <div class="contact-text">
                         <p>110-220 Quisque diam odio, maximus ac consectetur eu, 10260
                         <br>auctor non lorem</p>
-                        <p>You are NOT allowed to re-distribute Softy Pinko template on any template collection websites. Thank you.</p>
                     </div>
                 </div>
                 <!-- ***** Contact Text End ***** -->
@@ -618,11 +612,6 @@ https://templatemo.com/tm-535-softy-pinko
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="copyright">Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo</p>
-                </div>
-            </div>
         </div>
     </footer>
     
@@ -641,6 +630,18 @@ https://templatemo.com/tm-535-softy-pinko
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-
+    <script>
+        // Load dynamic data from the back-end on port 5252
+        $(function() {
+            $.ajax({
+                type: "GET",
+                url: "/api/hello",
+                success: function (data) {
+                    console.log(data);
+                    $('#dynamic-content').text(data);
+                }
+            });
+        });
+    </script>
   </body>
 </html>
