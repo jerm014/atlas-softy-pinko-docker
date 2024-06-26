@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-""" flash web server for project atlas softy pinky docker """
-
 from flask import Flask
 
 app = Flask(__name__)
@@ -12,4 +9,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5252)
+    app.run(host='localhost', debug=True, port=5252)
